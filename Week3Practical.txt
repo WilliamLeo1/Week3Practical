@@ -1,0 +1,93 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Feb  2 16:13:40 2021
+
+@author: bootl
+"""
+
+
+import random
+import operator
+import matplotlib.pyplot
+
+agents = []
+
+
+#set up variables
+agents.append([random.randint(0,99),random.randint(0,99)])
+
+
+
+#random walk one step
+if random.random() <0.5:
+    agents[0][0]+=1
+else:
+    agents[0][0]-=1
+
+if random.random() <0.5:
+    agents[0][1]+=1
+else:
+    agents[0][1]-=1
+    
+print(agents[0][0], agents[0][1])
+
+#random walk one step
+if random.random() <0.5:
+    agents[0][0]+=1
+else:
+    agents[0][0]-=1
+
+if random.random() <0.5:
+    agents[0][1]+=1
+else:
+    agents[0][1]-=1
+    
+print(agents[0][0], agents[0][1])
+
+
+
+#set up variables
+agents.append([random.randint(0,99),random.randint(0,99)])
+
+
+#random walk one step
+if random.random() <0.5:
+    agents[1][0]+=1
+else:
+    agents[1][0]-=1
+
+if random.random() <0.5:
+    agents[1][1]+=1
+else:
+    agents[1][1]-=1
+    
+print(agents[1][0], agents[1][1])
+
+#random walk one step
+if random.random() <0.5:
+    agents[1][0]+=1
+else:
+    agents[1][0]-=1
+
+if random.random() <0.5:
+    agents[1][1]+=1
+else:
+    agents[1][1]-=1
+    
+print(agents[1][0], agents[1][1])
+
+
+answer=(((agents[1][0]-agents[0][0])**2)+((agents[1][1]-agents[0][1])**2))**0.5
+print(answer)
+
+print(agents)
+
+print(max(agents, key=operator.itemgetter(1)))
+
+matplotlib.pyplot.ylim(0, 99)
+matplotlib.pyplot.xlim(0, 99)
+matplotlib.pyplot.scatter(agents[0][1],agents[0][0])
+matplotlib.pyplot.scatter(agents[1][1],agents[1][0])
+a=max(agents, key=operator.itemgetter(1))
+matplotlib.pyplot.scatter(a[0], a[1], color='green')
+matplotlib.pyplot.show()
